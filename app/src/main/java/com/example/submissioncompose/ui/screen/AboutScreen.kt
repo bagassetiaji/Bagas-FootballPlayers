@@ -1,9 +1,9 @@
 package com.example.submissioncompose.ui.screen
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -28,31 +28,26 @@ fun AboutScreen(
     val univ = "Universitas Pembangunan Nasional Veteran Yogyakarta"
     val jurusan = "Teknik Informatika"
 
-
-    Box(
+    Card(
         modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White)
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .clip(CircleShape)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .align(Alignment.Center)
+                .padding(16.dp)
         ) {
-            Box(
+            Image(
+                painter = image,
+                contentDescription = "about_image",
                 modifier = Modifier
                     .size(200.dp)
                     .clip(CircleShape)
-                    .background(Color.Gray)
-                    .align(Alignment.CenterHorizontally)
-            ) {
-                Image(
-                    painter = image,
-                    contentDescription = "about_image",
-                    modifier = Modifier.fillMaxSize(),
-                    contentScale = ContentScale.Crop
-                )
-            }
+                    .align(Alignment.CenterHorizontally),
+                contentScale = ContentScale.Crop
+            )
             Spacer(modifier = Modifier.height(24.dp))
             Text(
                 text = name,
@@ -70,12 +65,11 @@ fun AboutScreen(
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = univ,
                 color = Color.Black,
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp,
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
@@ -87,7 +81,6 @@ fun AboutScreen(
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
-
         }
     }
 }
